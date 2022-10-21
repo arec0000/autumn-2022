@@ -1,0 +1,18 @@
+@import '../../../assets/variables.scss';
+
+.side-panel {
+    width: 18em;
+    &__container {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        background-color: $widget-background;
+        justify-content: flex-end;
+        width: 100%; 
+    }
+    &__link {
+        padding-left: 15%;
+        text-decoration: none;
+        color: white;
+    }
+}
