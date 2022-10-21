@@ -1,14 +1,6 @@
 import * as Yup from 'yup'
 
 const validationSchema = Yup.object().shape({
-    role: Yup.string()
-        .required('Выберите роль'),
-    surname: Yup.string()
-        .min(2, 'Фамилия должна содержать больше 2 символов')
-        .required('Заполните фамилию'),
-    name: Yup.string()
-        .min(2, 'Имя должно содержать больше 2 символов')
-        .required('Заполните имя'),
     token: Yup.string().required('Вставьте регистрационный токен'),
     email: Yup.string()
         .email('Неправильный email адрес')
