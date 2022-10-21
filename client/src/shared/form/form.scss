@@ -1,0 +1,107 @@
+@import '../../assets/variables.scss';
+
+.form-container {
+    max-width: 800px;
+    padding-top: 80px;
+    margin: 0 auto;
+}
+
+.form {
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 8px;
+    background-color: $widget-background;
+    color: $main-text-color;
+
+    h2 {
+        padding-left: 8px;
+        margin-bottom: .8rem;
+        font-size: 1.4em;
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: .8rem;
+        padding: 6px 14px;
+        border-radius: 4px;
+        background: none;
+        color: inherit;
+        font-size: .94em;
+        font-weight: 500;
+        transition: background-color .3s;
+        &:hover, &:focus {
+            background-color: $active-background;
+        }
+    }
+
+    select {
+        width: 100%;
+        margin-bottom: .8rem;
+        padding: 6px 14px;
+        border-radius: 4px;
+        background: none;
+        color: inherit;
+        font-size: .94em;
+        font-weight: 500;
+        transition: background-color .3s;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        &:hover, &:focus {
+            background-color: $active-background;
+        }
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+
+    &__submit {
+        display: block;
+        margin: 0 0 .8rem auto;
+        padding: 8px 14px;
+        font-weight: 600;
+        color: inherit;
+        border-radius: 4px;
+        background-color: $button-color;
+        transition: background-color .2s;
+        &:hover, &:focus-visible {
+            background-color: $button-hover-color;
+        }
+        &:active {
+            background-color: $button-active-color;
+        }
+    }
+
+    &__link-wrapper {
+        text-align: end;
+    }
+
+    &__link {
+        margin-left: auto;
+        font-size: .94em;
+        font-weight: 500;
+        color: $secondary-text-color;
+        text-decoration: underline;
+    }
+
+    &__error {
+        font-size: .94em;
+        font-weight: 500;
+        color: rgb(179, 49, 49);
+    }
+
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: .8rem;
+    overflow: hidden;
+    border-radius: 4px;
+
+    input {
+        margin: 0;
+        border-radius: 0;
+    }
+}
