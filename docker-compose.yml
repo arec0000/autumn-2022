@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  # server:
+  #   build: server/
+  #   restart: always
+  #   ports:
+  #     - 5000:5000
+  #     - 3000:3000
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=test-pass
+    volumes:
+      - mongodb_volume:/data/db
+    restart: always
+    container_name: mongo
+    hostname: mongo
+    ports:
+      - 27017:27017
+
+volumes:
+    mongodb_volume:

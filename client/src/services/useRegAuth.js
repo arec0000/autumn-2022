@@ -11,7 +11,7 @@ const useRegAuth = (route) => {
         setError(null)
         clearError()
         try {
-            const res = await req(`${apiBase}${route}`, 'POST', data, {
+            const res = await req(`${apiBase}${route}`, 'POST', JSON.stringify(data), {
                 'Content-Type': 'application/json'
             })
             if (err) {
