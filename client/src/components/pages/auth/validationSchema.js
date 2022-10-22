@@ -6,7 +6,7 @@ const validationSchema = Yup.object().shape({
         .required('Заполните email'),
     password: Yup.string()
         .min(4, 'Пароль должен быть больше 4 символов')
-        .required('Придумайте пароль')
+        .required('Заполните пароль')
 })
 
 export default validationSchema

@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Field } from 'formik'
+import { useCookies } from 'react-cookie'
 import CustomForm from '../shared/form/form'
-import useRegister from '../../../services/useRegister'
+import useRegAuth from '../../../services/useRegAuth'
 
 import validationSchema from './validationSchema'
 
@@ -14,16 +14,25 @@ const initialValues = {
 }
 
 const Register = ({setRole}) => {
-    const [error, setError] = useState(null)
-    const request = useRegister()
+    const {request, error} = useRegAuth('register')
+    const [token, setToken] = useCookies('token')
 
-    const onSubmit = (values) => {
-
+    const onSubmit = async values => {
+        const res = await request(values)
+        if (!error) {
+            setRole(res.role)
+            setToken('token', res.token, { path: '/'})
+        }
     }
 
     return (
         <div className="form-container">
-            <CustomForm initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            <CustomForm
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+                error={error}
+            >
                 <h2>Регистрация</h2>
                 <Field
                     type="text"
