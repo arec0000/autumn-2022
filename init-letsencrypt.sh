@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(pinpinim.ru www.pinpinim.ru) # !!! поменять домен
+domains=(grtsk.ru www.grtsk.ru)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="arec0000@gmail.com" # Adding a valid address is strongly recommended
