@@ -8,6 +8,12 @@ const generateAccessToken = id => {
     return jwt.sign(payload, secret, {expiresIn: '24h'})
 }
 
+const checkAccess = async token => {
+    const {id} = jwt.verify(token, secret)
+    const user = await User.findById(id)
+    return user?.role
+}
+
 export const getRole = async (req, res) => {
     const token = req.headers.authorization
     if (!token) {
@@ -15,14 +21,13 @@ export const getRole = async (req, res) => {
             error: 'Пользователь не авторизован'
         })
     }
-    const {id} = jwt.verify(token, secret)
-    const user = await User.findById(id)
-    if (!user) {
+    const role = checkAccess(token)
+    if (!role) {
         return res.status(403).json({
             error: 'Пользователя с таким id не существует'
         })
     }
-    res.json({role: user.role})
+    res.json({role})
 }
 
 export const auth = async (req, res) => {
@@ -74,8 +79,15 @@ export const register = async (req, res) => {
 }
 
 export const createUser = async (req, res) => {
-    // нужно ещё проверять есть ли у пользователя права по токену
+    // верификация пока отключена, чтобы можно было содать первого администратора
+    // const token = req.headers.authorization
     try {
+        // const role = await checkAccess(token)
+        // if (role != 'admin') {
+            // return res.status(403).json({
+                // error: 'У вас нет доступа'
+            // })
+        // }
         const user = new User(req.body)
         await user.save()
         console.log('Пользователь создан')
@@ -83,12 +95,24 @@ export const createUser = async (req, res) => {
     } catch (e) {
         res.json(e.message)
         console.log('Ошибка при создании пользователя')
-        console.err(e)
+        console.error(e)
     }
 }
 
 export const getAllUsers = async (req, res) => {
-    // тоже проверять
-    const users = await User.find({})
-    res.json(users)
+    const token = req.headers.authorization
+    try {
+        const role = await checkAccess(token)
+        if (role != 'admin') {
+            return res.status(403).json({
+                error: 'У вас нет доступа'
+            })
+        }
+        const users = await User.find({})
+        res.json(users)
+    } catch (e) {
+        res.json(e.message)
+        console.log('Ошибка при создании пользователя')
+        console.error(e)
+    }
 }
