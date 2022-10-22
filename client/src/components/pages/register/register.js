@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Field } from 'formik'
-import CustomForm from '../../../shared/form/form'
+import CustomForm from '../shared/form/form'
+import useRegister from '../../../services/useRegister'
 
 import validationSchema from './validationSchema'
 
@@ -11,10 +13,17 @@ const initialValues = {
     confirmPassword: ''
 }
 
-const Register = () => {
+const Register = ({setRole}) => {
+    const [error, setError] = useState(null)
+    const request = useRegister()
+
+    const onSubmit = (values) => {
+
+    }
+
     return (
         <div className="form-container">
-            <CustomForm initialValues={initialValues} validationSchema={validationSchema}>
+            <CustomForm initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                 <h2>Регистрация</h2>
                 <Field
                     type="text"

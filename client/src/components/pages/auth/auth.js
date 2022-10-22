@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Field } from 'formik'
-import CustomForm from '../../../shared/form/form'
+import CustomForm from '../shared/form/form'
 
 import validationSchema from '../register/validationSchema'
 
@@ -9,10 +9,14 @@ const initialValues = {
     password: ''
 }
 
+const onSubmit = (values) => {
+
+}
+
 const Auth = () => {
     return (
         <div className="form-container">
-            <CustomForm initialValues={initialValues} validationSchema={validationSchema}>
+            <CustomForm initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                 <h2>Авторизация</h2>
                 <Field
                     type="email"

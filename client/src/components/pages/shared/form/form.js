@@ -2,15 +2,15 @@ import { Formik, Form } from 'formik'
 
 import './form.scss'
 
-const renderValidationError = (initialValues, errors, touched) => {
-    for (let key of Object.keys(initialValues)) {
+const renderValidationError = (errors, touched) => {
+    for (let key of Object.keys(errors)) {
         if (errors[key] && touched[key]) {
             return errors[key]
         }
     }
 }
 
-const CustomForm = ({initialValues, validationSchema, onSubmit, children}) => {
+const CustomForm = ({initialValues, validationSchema, onSubmit, error, children}) => {
     return (
         <Formik
             initialValues={initialValues}
@@ -21,7 +21,7 @@ const CustomForm = ({initialValues, validationSchema, onSubmit, children}) => {
                 <Form className="form">
                     {children}
                     <span className="form__error">
-                        {renderValidationError(initialValues, errors, touched)}
+                        {error || renderValidationError(errors, touched)}
                     </span>
                 </Form>
             )}
