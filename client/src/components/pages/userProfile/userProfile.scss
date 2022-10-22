@@ -1,8 +1,10 @@
 @import '../../../assets/variables.scss';
 
 .user-profile {
+    margin-left: 20px;
     display: grid;
     grid-template-columns: 60% 40%;
+    gap: 5px;
     &__main {
         grid-column: span 2;
         width: 100%;
