@@ -27,7 +27,7 @@ const App = () => {
             }
             req()
         }
-    }, [])
+    }, []) // eslint-disable-line
 
     return (
         <div className="App">

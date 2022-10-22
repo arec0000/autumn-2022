@@ -1,22 +1,36 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Field } from 'formik'
+import { useCookies } from 'react-cookie'
 import CustomForm from '../shared/form/form'
+import useRegAuth from '../../../services/useRegAuth'
 
-import validationSchema from '../register/validationSchema'
+import validationSchema from './validationSchema'
 
 const initialValues = {
     email: '',
     password: ''
 }
 
-const onSubmit = (values) => {
+const Auth = ({setRole}) => {
+    const {request, error} = useRegAuth('auth')
+    const [token, setToken] = useCookies('token') // eslint-disable-line
+    const navigate = useNavigate()
 
-}
+    const onSubmit = async (values) => {
+        const res = await request(values)
+        setRole(res.role)
+        setToken('token', res.token, { path: '/'})
+        navigate('/')
+    }
 
-const Auth = () => {
     return (
         <div className="form-container">
-            <CustomForm initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            <CustomForm
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+                error={error}
+            >
                 <h2>Авторизация</h2>
                 <Field
                     type="email"

@@ -9,18 +9,22 @@ const manageAccess = (role) => {
         case 'student':
             return (
                 <Route path="/" element={<Main/>}>
-                        <Route path='news' element={<UserNews/>}/>
-                        <Route path='profile' element={<UserProfile/>}/>
-                        <Route path='schedule' element={<UserSchedule/>}/>
-                    </Route>
+                    <Route path='news' element={<UserNews/>}/>
+                    <Route path='profile' element={<UserProfile/>}/>
+                    <Route path='schedule' element={<UserSchedule/>}/>
+                </Route>
             )
         case 'teacher':
             return (
-                <div>учитель</div>
+                null
             )
         case 'employee':
             return (
-                <div>сотрудник</div>
+                null
+            )
+        case 'admin':
+            return (
+                null
             )
         default:
             return <Route path="*" element={<Navigate to="auth"/>}/>
