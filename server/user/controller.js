@@ -136,5 +136,28 @@ export const getAllUsers = async (req, res) => {
 }
 
 export const deleteUser = async (req, res) => {
+    const token = req.headers.authorization
+    try {
+        const role = await checkAccess(token)
+        if (role != 'admin') {
+            return res.status(403).json({
+                error: 'У вас нет доступа'
+            })
+        }
+        const id = req.query.id
+        if (!id) {
+            return res.status(400).json({
+                error: 'id не указан'
+            })
+        }
+        User.findByIdAndDelete(id)
+        res.json(`Пользователь ${id} удалён`)
+    } catch (e) {
+        res.json(e.message)
+        console.log('Ошибка при удалении пользователя')
+        console.error(e)
+    }
+
+
 
 }
