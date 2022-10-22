@@ -9,7 +9,9 @@ const UserProfile = () => {
         name: "Anna",
         surname: "Love",
         group: "XU12",
-        maile: "aaaaa@mail.ru",
+        mail: "aaaaa@mail.ru",
+        number: "89505078989",
+        vk: "aaaaaaaaaaa",
         birthDate: "12.01.2000",
         course: "3"
     }
@@ -21,17 +23,22 @@ const UserProfile = () => {
                     <div className="user-profile__foto">
                         <img src={data.foto} alt="foto"/>
                     </div>
-                    <span className="user-profile__user-inform">{data.name} {data.surname}</span>
                 </div>
-                <div className="user-profile__basic-information">
-                    <span className="text-secondary">Группа: </span>
-                    <span>{data.group}</span>
-                    <span className="text-secondary">Дата рождения: </span>
-                    <span>{data.birthDate}</span>
-                    <span className="text-secondary">Email: </span>
-                    <span>{data.maile}</span>
-                    <span className="text-secondary">Курс: </span>
-                    <span>{data.course}</span>
+                <div className="user-profile__assessment">
+                    <div className="">
+                        <span className="user-profile__user-inform">{data.name} {data.surname}</span>
+                    </div>
+                    <div className="user-profile__contact-information">
+                        <div>
+                            <span className="icon1">{data.mail}</span>
+                        </div>
+                        <div>
+                            <span className="icon2">{data.number}</span>
+                        </div>
+                        <div>
+                            <span className="icon3">{data.vk}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="user-profile__left">
