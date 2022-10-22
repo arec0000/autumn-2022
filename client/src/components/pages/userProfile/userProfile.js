@@ -1,6 +1,7 @@
 import foto from "../../../assets/12.jpg"
 import "./userProfile.scss"
 
+import Achievements from '../achievements/achievements'
 
 const UserProfile = () => {
     const data = {
@@ -14,8 +15,8 @@ const UserProfile = () => {
     }
 
     return (
-        <>
-            <div className="user-profile">
+        <div className="user-profile">
+            <div className="user-profile__main">
                 <div className="user-profile__foto-container">
                     <div className="user-profile__foto">
                         <img src={data.foto} alt="foto"/>
@@ -33,7 +34,13 @@ const UserProfile = () => {
                     <span>{data.course}</span>
                 </div>
             </div>
-        </>
+            <div className="user-profile__left">
+                <Achievements/>
+            </div>
+            <div className="user-profile__right">
+
+            </div>
+        </div>
     )
 }
 

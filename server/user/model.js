@@ -5,6 +5,7 @@ const User = mongoose.Schema({
     FCs: {type: String, required: true},
     birthdate: {type: Number, required: true},
     role: {type: String, required: true},
+    course: {type: Number},
     group: {type: String},
     email: {type: String},
     password: {type: String}

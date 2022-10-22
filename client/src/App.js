@@ -10,10 +10,6 @@ import Register from './components/pages/register/register'
 import Spinner from './components/pages/shared/spinner/spinner'
 import './assets/style.scss'
 
-
-
-
-
 const App = () => {
     const [{token}] = useCookies('token')
     const [role, setRole] = useState("student")
