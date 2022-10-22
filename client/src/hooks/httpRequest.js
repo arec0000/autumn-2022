@@ -8,8 +8,8 @@ export const useHttp = () => {
         setLoading(true)
         try {
             const res = await fetch(url, {method, body, headers})
-            if (!res.ok) throw new Error(`Could not fetch ${url}, status: ${res.status}`)
             const data = await res.json()
+            if (!res.ok) throw new Error(data.error || `Could not fetch ${url}, status: ${res.status}`)
             setLoading(false)
             return data
         } catch(err) {

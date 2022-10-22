@@ -1,0 +1,60 @@
+@import '../../../assets/variables.scss';
+
+.main {
+    height: 100vh;
+    &__button {
+        transition: all .5s;
+        position: fixed;
+        top: 2%;
+        left: 16%;
+        width: 50px;
+        height: 20px;
+        background: url("../../../assets/icon/arrows.svg") 0 center/auto 100% no-repeat;
+        &_close {
+            left: 0;
+            transform: rotate(180deg);
+        }
+    }
+    &__container {
+        display: flex;
+        width: 100%;
+        min-height: 100%;
+    }
+}
+.side-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: $widget-background;
+    padding: 1%;
+    transition-timing-function: ease;
+	transition: transform 0.5s;
+    &_hidden {
+        transform: translate(-100%, 0);
+        display: none;
+    }
+    &__link {
+        padding: 4% 0 3% 15%;
+        text-decoration: none;
+        color: $secondary-text-color;
+        font-size: 1.3rem;
+        font-weight: 500;
+        background: url("../../../assets/icon/news.svg") 0 center/auto 70% no-repeat;
+        &_profile {
+            background: url("../../../assets/icon/profile.svg") 0 center/auto 70% no-repeat;
+        }
+        &_schedule {
+            background: url("../../../assets/icon/schedule.svg") 0 center/auto 70% no-repeat;
+        }
+    }
+    &__page {
+        width: 100%;
+        height: 100%;
+        margin-left: 16%;
+    }
+}

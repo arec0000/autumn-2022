@@ -12,7 +12,7 @@ import "./assets/style.scss";
 
 const App = () => {
     const [{ token }] = useCookies("token");
-    const [role, setRole] = useState(null);
+    const [role, setRole] = useState("student");
     const request = useRequestAuthData();
 
     useEffect(() => {

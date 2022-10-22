@@ -1,0 +1,62 @@
+@import '../../../assets/variables.scss';
+
+.achievements {
+    padding: 25px;
+    background-color: $blue-background;
+    color: $main-text-color;
+
+    h2 {
+        color: inherit;
+        margin-bottom: 1rem;
+    }
+
+    &__block {
+        display: flex;
+        // margin-bottom: 15px;
+        min-height: 35px;
+        align-items: center;
+        &:first-of-type {
+            .achievements__line {
+                transform: translateY(50%);
+                &::before {
+                    top: 0;
+                }
+            }
+        }
+        &:last-of-type {
+            .achievements__line {
+                transform: translateY(-50%);
+                &::before {
+                    top: 100%;
+                }
+            }
+        }
+    }
+
+    &__date {
+
+    }
+
+    &__line {
+        position: relative;
+        width: 2px;
+        align-self: stretch;
+        margin: 0 15px;
+        background-color: $main-text-color;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            height: 8px;
+            width: 8px;
+            background-color: $main-text-color;
+        }
+    }
+
+    &__description {
+
+    }
+}

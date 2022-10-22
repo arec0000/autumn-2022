@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Field } from 'formik'
 import { useCookies } from 'react-cookie'
 import CustomForm from '../shared/form/form'
@@ -15,14 +15,14 @@ const initialValues = {
 
 const Register = ({setRole}) => {
     const {request, error} = useRegAuth('register')
-    const [token, setToken] = useCookies('token')
+    const [token, setToken] = useCookies('token') // eslint-disable-line
+    const navigate = useNavigate()
 
-    const onSubmit = async values => {
+    const onSubmit = async (values) => {
         const res = await request(values)
-        if (!error) {
-            setRole(res.role)
-            setToken('token', res.token, { path: '/'})
-        }
+        setRole(res.role)
+        setToken('token', res.token, { path: '/'})
+        navigate('/')
     }
 
     return (

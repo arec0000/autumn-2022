@@ -17,6 +17,7 @@ a,a:visited{text-decoration:none;}
 a:hover{text-decoration:none;}
 // ul,li{list-style:none;}
 img{vertical-align:top;}
+h1,h2,h3,h4,h5{color:inherit}
 
 html {
     background-color: #191919;
@@ -28,6 +29,8 @@ body {
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    background-color: #191919;
+    overflow-x: hidden;
 }
 
 .container-1000 {
