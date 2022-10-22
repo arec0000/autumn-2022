@@ -20,12 +20,9 @@ const Register = ({setRole}) => {
 
     const onSubmit = async (values) => {
         const res = await request(values)
-        if (!error) {
-            setRole(res.role)
-            setToken('token', res.token, { path: '/'})
-            console.log('aa')
-            navigate('/')
-        }
+        setRole(res.role)
+        setToken('token', res.token, { path: '/'})
+        navigate('/')
     }
 
     return (

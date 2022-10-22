@@ -42,7 +42,8 @@ export const auth = async (req, res) => {
     console.log('Авторизация прошла успешно')
     res.json({
         title: 'Авторизация прошла успешно',
-        token: generateAccessToken(user._id)
+        token: generateAccessToken(user._id),
+        role: user.role
     })
 }
 
@@ -66,7 +67,8 @@ export const register = async (req, res) => {
         console.log('Регистрация прошла успешно')
         res.json({
             title: 'Регистрация прошла успешно',
-            token: generateAccessToken(result._id)
+            token: generateAccessToken(result._id),
+            role: user.role
         })
     })
 }

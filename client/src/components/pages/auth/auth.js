@@ -18,11 +18,9 @@ const Auth = ({setRole}) => {
 
     const onSubmit = async (values) => {
         const res = await request(values)
-        if (!error) {
-            setRole(res.role)
-            setToken('token', res.token, { path: '/'})
-            navigate('/')
-        }
+        setRole(res.role)
+        setToken('token', res.token, { path: '/'})
+        navigate('/')
     }
 
     return (

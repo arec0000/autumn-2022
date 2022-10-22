@@ -14,6 +14,10 @@ const manageAccess = (role) => {
             return (
                 null
             )
+        case 'admin':
+            return (
+                null
+            )
         default:
             return <Route path="*" element={<Navigate to="auth"/>}/>
     }
