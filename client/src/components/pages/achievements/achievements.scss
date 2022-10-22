@@ -1,1 +1,11 @@
-// $blue-background
+@import '../../../assets/variables.scss';
+
+.achievements {
+    padding: 25px;
+    background-color: $blue-background;
+    color: $main-text-color;
+
+    h2 {
+        color: inherit;
+    }
+}
