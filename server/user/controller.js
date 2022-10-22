@@ -1,15 +1,92 @@
-export const getRole = (req, res) => {
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcryptjs'
+import { secret } from '../config.js'
+import User from './model.js'
 
+const generateAccessToken = id => {
+    const payload = {id}
+    return jwt.sign(payload, secret, {expiresIn: '24h'})
 }
 
-export const auth = (req, res) => {
-
+export const getRole = async (req, res) => {
+    const token = req.headers.authorization
+    if (!token) {
+        return res.status(403).json({
+            error: 'Пользователь не авторизован'
+        })
+    }
+    const {id} = jwt.verify(token, secret)
+    const user = await User.findById(id)
+    if (!user) {
+        return res.status(403).json({
+            error: 'Пользователя с таким id не существует'
+        })
+    }
+    res.json({role: user.role})
 }
 
-export const register = (req, res) => {
-
+export const auth = async (req, res) => {
+    const {email, password} = req.body
+    const user = await User.findOne({email})
+    if (!user) {
+        return res.status(400).json({
+            error: 'Такого пользователя не существует'
+        })
+    }
+    const validingPassword = bcrypt.compareSync(password, user.password)
+    if (!validingPassword) {
+        return res.status(400).json({
+            error: 'Неверный пароль'
+        })
+    }
+    console.log('Авторизация прошла успешно')
+    res.json({
+        title: 'Авторизация прошла успешно',
+        token: generateAccessToken(user._id)
+    })
 }
 
-export const createUser = (req, res) => {
+export const register = async (req, res) => {
+    const {token, email, password} = req.body
+    const user = await User.findById(token)
+    if (user.email && user.password) {
+        return res.status(400).json({
+            error: 'Данный пользователь уже зарегестрирован'
+        })
+    }
+    const candidate = await User.findOne({email})
+    if (candidate) {
+        return res.status(400).json({
+            error: 'Пользователь с таким email уже зарегестрирован'
+        })
+    }
+    user.email = email
+    user.password = bcrypt.hashSync(password, 7)
+    await user.save().then(result => {
+        console.log('Регистрация прошла успешно')
+        res.json({
+            title: 'Регистрация прошла успешно',
+            token: generateAccessToken(result._id)
+        })
+    })
+}
 
+export const createUser = async (req, res) => {
+    // нужно ещё проверять есть ли у пользователя права по токену
+    try {
+        const user = new User(req.body)
+        await user.save()
+        console.log('Пользователь создан')
+        res.json('Пользователь успешно создан')
+    } catch (e) {
+        res.json(e.message)
+        console.log('Ошибка при создании пользователя')
+        console.err(e)
+    }
+}
+
+export const getAllUsers = async (req, res) => {
+    // тоже проверять
+    const users = await User.find({})
+    res.json(users)
 }

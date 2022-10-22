@@ -4,15 +4,15 @@ const manageAccess = (role) => {
     switch (role) {
         case 'student':
             return (
-                <div>студент</div>
+                null
             )
         case 'teacher':
             return (
-                <div>учитель</div>
+                null
             )
         case 'employee':
             return (
-                <div>сотрудник</div>
+                null
             )
         default:
             return <Route path="*" element={<Navigate to="auth"/>}/>
