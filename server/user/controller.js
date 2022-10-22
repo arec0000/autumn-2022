@@ -78,6 +78,24 @@ export const register = async (req, res) => {
     })
 }
 
+export const getUserData = async (req, res) => {
+    const token = req.headers.authorization
+    if (!token) {
+        return res.status(403).json({
+            error: 'Пользователь не авторизован'
+        })
+    }
+    try {
+        const {id} = jwt.verify(token, secret)
+        const user = await User.findById(id)
+        res.json(user)
+    } catch (e) {
+        res.json(e.message)
+        console.log('Ошибка при получении данных')
+        console.error(e)
+    }
+}
+
 export const createUser = async (req, res) => {
     // верификация пока отключена, чтобы можно было содать первого администратора
     // const token = req.headers.authorization
@@ -112,7 +130,11 @@ export const getAllUsers = async (req, res) => {
         res.json(users)
     } catch (e) {
         res.json(e.message)
-        console.log('Ошибка при создании пользователя')
+        console.log('Ошибка при получении списка пользователей')
         console.error(e)
     }
+}
+
+export const deleteUser = async (req, res) => {
+
 }
