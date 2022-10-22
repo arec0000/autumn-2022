@@ -1,8 +1,14 @@
 const UserNews = () => {
-    
+    const news = {
+        img: "",
+        description: "",
+        category: "",
+        author: ""
+    }
+
     return (
         <>
-            <div>NEWS</div>
+
         </>
     )
 }
