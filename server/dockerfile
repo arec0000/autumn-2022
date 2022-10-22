@@ -1,0 +1,7 @@
+FROM node
+WORKDIR /usr/src/server
+COPY package*.json ./
+RUN npm install --only=prod
+COPY . .
+EXPOSE 5000
+CMD [ "node", "index.js" ]
