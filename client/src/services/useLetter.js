@@ -1,7 +1,7 @@
 import { useCookies } from 'react-cookie'
 import { useHttp } from '../hooks/httpRequest'
 
-const apiBase = 'http://grtsk:5000/'
+const apiBase = 'http://grtsk.ru:5000/'
 
 const useLetter = () => {
     const [{token}] = useCookies('token')
