@@ -5,7 +5,7 @@ import { useState } from 'react'
 import useNews from '../../../services/useNews'
 import { useEffect } from 'react'
 
-const LetterModal = ({close}) => {
+const LetterModal = ({ close }) => {
     return (
         <Modal close={close}>
             <div className="letter__span">
@@ -18,28 +18,28 @@ const LetterModal = ({close}) => {
                 <button onClick={() => {}}>Отправить</button>
             </div>
         </Modal>
-    )
-}
+    );
+};
 
 const UserNews = () => {
     const [letter, setLetter] = useState(false);
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        getNews().then(res => {
-            setNews(res)
-        })
-    }, [])
+        getNews().then((res) => {
+            setNews(res);
+        });
+    }, []);
 
-    const {getNews} = useNews()
+    const { getNews } = useNews();
 
     const openModal = () => {
-        setLetter(true)
-    }
+        setLetter(true);
+    };
 
     const closeModal = () => {
-        return setLetter(false)
-    }
+        return setLetter(false);
+    };
 
     function updateChars(news) {
         const items = news.map((item, i) => {
@@ -67,27 +67,27 @@ const UserNews = () => {
                         </div>
                     </li>
                 </>
-            )
+            );
         });
 
-        return (
-            <ul className="news__ul">
-                {items}
-            </ul>
-        )
+        return <ul className="news__ul">{items}</ul>;
     }
 
-
-    const rectorModal = letter ? <LetterModal close={closeModal}/> : null;
+    const rectorModal = letter ? <LetterModal close={closeModal} /> : null;
 
     return (
         <div className="news">
-            <button className="news__button news__button_letter" onClick={openModal}>Написать ректору</button>
+            <button
+                className="news__button news__button_letter"
+                onClick={openModal}
+            >
+                Написать ректору
+            </button>
             <button className="news__button">Предложить новость</button>
             {updateChars(news)}
             {rectorModal}
         </div>
-    )
-}
+    );
+};
 
-export default UserNews
+export default UserNews;
