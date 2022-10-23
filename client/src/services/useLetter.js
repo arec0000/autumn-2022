@@ -8,7 +8,7 @@ const useLetter = () => {
     const {request} = useHttp()
 
     const send = async text => {
-        const res = await request(`${apiBase}rector`, 'POST', JSON.stringify(text), {
+        const res = await request(`${apiBase}rector`, 'POST', JSON.stringify({text}), {
             'Content-Type': 'application/json',
             'Authorization': token
         })

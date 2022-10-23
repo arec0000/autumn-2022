@@ -1,9 +1,9 @@
 import express from 'express'
-import { sendLetter, getLetters } from './controller.js'
+import { createLetter, getLetters } from './controller.js'
 
 const letterRouter = express.Router()
 
 letterRouter.get('/rector', getLetters)
-letterRouter.post('/rector', sendLetter)
+letterRouter.post('/rector', createLetter)
 
 export default letterRouter

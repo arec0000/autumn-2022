@@ -45,22 +45,14 @@ const Admin = () => {
         },
     ]);
     const [news, setNews] = useState([])
-    const [comments, setComments] = useState([{
-        name: "Андрей",
-        lastName: "Карагачев",
-        text: 'Вы очень много работаете, может вам пора отдохнуть'
-    },{
-        name: "Вова",
-        lastName: "Смирнов",
-        text: 'Мне кажется вы слишком мало работаете, работайте побольше, а то результата не видно'
-    }])
+    const [comments, setComments] = useState([])
 
     useEffect(() => {
         const req = async () => {
             const res = await getNews()
             setNews(res)
             const letters = await getLetters()
-            console.log(letters)
+            setComments(letters)
         }
         req()
     }, [])

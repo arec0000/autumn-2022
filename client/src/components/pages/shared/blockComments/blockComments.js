@@ -8,8 +8,7 @@ const BlockComments = ({ comments }) => {
                 {comments.map((i) => (
                     <div className="comment">
                         <div className="commUser">
-                            <div>{i.name}</div>
-                            <div>{i.lastName}</div>
+                            <div>{i.author}</div>
                         </div>
                         <div>{i.text}</div>
                     </div>

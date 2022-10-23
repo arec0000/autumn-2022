@@ -9,7 +9,7 @@ const checkAccess = async token => {
     return user?.role
 }
 
-export const sendLetter = async (req, res) => {
+export const createLetter = async (req, res) => {
     const token = req.headers.authorization
     if (!token) {
         return res.status(403).json({
@@ -19,7 +19,7 @@ export const sendLetter = async (req, res) => {
     const {id} = jwt.verify(token, secret)
     const user = await User.findById(id)
     const letter = new Letter({
-        text: req.body,
+        text: req.body.text,
         author: user.FCs
     })
     letter.save()
