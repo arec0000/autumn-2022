@@ -1,15 +1,19 @@
+import './userNews.scss'
+
+const news = {
+    img: "",
+    description: "",
+    category: "",
+    author: ""
+}
+
 const UserNews = () => {
-    const news = {
-        img: "",
-        description: "",
-        category: "",
-        author: ""
-    }
-
     return (
-        <>
+        <div className="news">
+            <div className="news__card">
 
-        </>
+            </div>
+        </div>
     )
 }
 

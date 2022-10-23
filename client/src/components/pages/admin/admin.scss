@@ -1,0 +1,220 @@
+@import '../../../assets/variables.scss';
+
+.adminContainer{
+    color: $main-text-color;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    br{
+    }
+    .adminRow{
+        display: flex;
+        gap: 27px;
+        max-width: 1340px;
+        
+        .newsContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 88vh;
+            .news{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                position: relative;
+                .newsTitle{
+                    font-size: 25px;
+                    font-weight: 600;
+                    padding: 0 0 10px 20px;
+                    display: flex;
+                    
+                }
+                .tegс{
+                    background-color: green;
+                }
+                .tegу{
+                    background-color: rgb(30, 0, 161);
+                }
+                .tegж{
+                    background-color: rgb(148, 72, 11);
+                }
+                .getTeg{
+                    padding: 3px 6px;
+                    max-width: 180px;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+                .blockTeg{
+                    background-color: #5f5f5f;
+                    left: 630px;
+                    border-radius: 8px;
+                    display: flex;
+                    gap: 10px;
+                    max-width: 200px;
+                    padding: 10px;
+                    .teg{
+                        border-radius: 4px;
+                        margin-bottom: 5px;
+                        cursor: pointer;
+                        padding: 3px;
+                        text-align: center;
+
+                    }
+                    
+                }
+                .nw{
+                    background-color: $active-background;
+                    border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    padding: 10px 15px;
+                    box-shadow: $shadow;
+                    .title{
+                        font-size: 20px;
+                        font-weight: 500;
+                        margin-bottom: 16px;
+                        display: flex;
+                        justify-content: space-between;
+                        img{
+                            width: 20px;
+                            cursor: pointer;
+                            }
+                    }
+                    .text{
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: space-between;
+                        img{
+                            width: 25px;
+                            height: 25px;
+                            cursor: pointer;
+                        }
+                    }
+                    
+                }
+            }
+            .createNews{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                textarea{
+                    border-radius: 8px;
+                    background-color: $active-background;
+                    color: $main-text-color;
+                    font-size: 17px;
+                    padding: 10px;
+                    box-shadow: $shadow;
+                    resize: none;
+                }
+                position: relative;
+                button{
+                    position: absolute;
+                    left: 737px;
+                    width: 80px;
+                    height: 30px;
+                    bottom: 4px;
+                    border-radius: 4px;
+                    background-color:#888a91;
+                    color: #000000;
+                    font-weight: 500;
+                }
+                button:hover{
+                    background-color:#6e6f74;
+                }
+            }
+           
+        }
+        .containerAuthUsers{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .authUsers{
+                font-size: 19px;
+                font-weight: 500;
+                padding: 0 0 7px 7px;
+            }
+            .createToken{
+                background-color: #888a91;
+                color: #000000;
+                border-radius: 4px;
+                font-weight: 500;
+                cursor: pointer;
+                height: 26px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+            .createToken:hover{
+                background-color:#6e6f74;
+            }
+            .users{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .user{
+                    background-color: $active-background;
+                    border-radius: 8px;
+                    display: flex;
+                    height: 80px;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    padding: 10px;
+                    .topUser{
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+            
+        }
+        .commentsContainer{
+            // .adminPanel{
+            //     margin: 0 0 20px -100px;
+            //     font-size: 26px;
+            //     font-weight: 500;
+            // }
+        
+            .comments{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .commentsRector{
+                    font-size: 19px;
+                        font-weight: 500;
+                        padding: 0 0 7px 7px;
+                 }
+                .comment{
+                    background-color: $active-background;
+                        border-radius: 8px;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 10px;
+                        .commUser{
+                            display: flex;
+                            gap: 10px;
+                        }
+    
+                }
+            }
+            
+        }
+        .blockToken{
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                background-color: $active-background;
+                border-radius: 8px;
+                padding:  18px 0;
+            }
+
+        }
+
+    }
+}
+

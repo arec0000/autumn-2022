@@ -21,7 +21,7 @@ export const getRole = async (req, res) => {
             error: 'Пользователь не авторизован'
         })
     }
-    const role = checkAccess(token)
+    const role = await checkAccess(token)
     if (!role) {
         return res.status(403).json({
             error: 'Пользователя с таким id не существует'
