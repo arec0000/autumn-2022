@@ -37,7 +37,7 @@ const UserNews = () => {
         getNews().then((res) => {
             setNews(res);
         });
-    }, []);
+    }, []); // eslint-disable-line
 
     const { getNews } = useNews();
 

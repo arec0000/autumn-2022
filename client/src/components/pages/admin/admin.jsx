@@ -44,7 +44,7 @@ const Admin = () => {
             setUsers(users)
         }
         req()
-    }, [])
+    }, []) // eslint-disable-line
 
     function createNew(title, text)  {
         if(nw.text && nw.title){

@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.be271ffd.css",
+    "main.js": "/static/js/main.e265f00c.js",
+    "static/media/squiral.jpeg": "/static/media/squiral.112860ae31b2c15d6e83.jpeg",
+    "static/media/12.jpg": "/static/media/12.48a99fa06d373ddd6d13.jpg",
+    "static/media/hamburger.png": "/static/media/hamburger.1bdad4cd1f9df26e7e0b.png",
+    "static/media/bin.png": "/static/media/bin.fa7887ac547cd590dcbf.png",
+    "static/media/news.svg": "/static/media/news.70103f0fba57765a7175.svg",
+    "static/media/profile.svg": "/static/media/profile.200f2a43b8689c24e566.svg",
+    "static/media/schedule.svg": "/static/media/schedule.864997472fbba86b2835.svg",
+    "static/media/mail.svg": "/static/media/mail.35b30123d830b770d93f.svg",
+    "static/media/number.svg": "/static/media/number.b274d1c091367e066409.svg",
+    "static/media/vk.svg": "/static/media/vk.3b87151251466706f065.svg",
+    "static/media/arrows.svg": "/static/media/arrows.f0d6046f02ffbf1ca45b.svg",
+    "static/media/spinner.svg": "/static/media/spinner.43c15b2f153f9f850b0e0eecc94ae8c5.svg",
+    "index.html": "/index.html",
+    "main.be271ffd.css.map": "/static/css/main.be271ffd.css.map",
+    "main.e265f00c.js.map": "/static/js/main.e265f00c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be271ffd.css",
+    "static/js/main.e265f00c.js"
+  ]
+}
