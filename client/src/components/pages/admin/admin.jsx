@@ -100,6 +100,7 @@ const Admin = () => {
             postUser({
                 FCs: `${valueUser.lastName} ${valueUser.name}`,
                 role: renameRole(valueToken.find(item => item.check).label),
+                email: valueUser.email,
                 group: valueUser.group
             })
         }
