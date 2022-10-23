@@ -1,5 +1,4 @@
 import Calendar from '../shared/calendar/calendar'
-import './userSchedule.scss'
 
 const lessons = [
     {
@@ -9,7 +8,7 @@ const lessons = [
         end: 1666509712847,
         description: 'Лекция по электродинамике',
         group: 'ХИ12',
-        teacher: 'Игорев Е.В.',
+        teacher: 'Белоруков И.В.',
         location: '11 кор. 310'
     }
 ]
