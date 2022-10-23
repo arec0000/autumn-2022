@@ -1,6 +1,6 @@
 import { useHttp } from '../hooks/httpRequest'
 
-const apiBase = 'http://localhost:5000/'
+const apiBase = 'https://grtsk:5000/'
 
 const useRegAuth = (route) => {
     const {request: req, error, clearError} = useHttp()
