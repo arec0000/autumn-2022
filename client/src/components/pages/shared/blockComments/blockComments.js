@@ -4,7 +4,7 @@ const BlockComments = ({ comments }) => {
     return (
         <div className="commentsContainer">
             <div className="comments">
-                <div className="commentsRector">Комментрарии к ректору</div>
+                <div className="commentsRector">Обращения к ректору</div>
                 {comments.map((i) => (
                     <div className="comment">
                         <div className="commUser">

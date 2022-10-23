@@ -4,6 +4,8 @@ import UserNews from './components/pages/userNews/userNews'
 import UserProfile from './components/pages/userProfile/userProfile'
 import UserSchedule from './components/pages/userSchedule/userSchedule'
 
+import Admin from './components/pages/admin/admin'
+
 const manageAccess = (role) => {
     switch (role) {
         case 'student':
@@ -24,7 +26,7 @@ const manageAccess = (role) => {
             )
         case 'admin':
             return (
-                null
+                <Route path="/" element={<Admin/>}/>
             )
         default:
             return <Route path="*" element={<Navigate to="auth"/>}/>
