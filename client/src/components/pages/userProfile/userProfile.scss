@@ -3,11 +3,12 @@
 .user-profile {
     margin: 50px;
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 45%;
+    // overflow: hidden;
     gap: 50px;
     &__main {
         grid-column: span 2;
-        width: 100%;
+        // width: 100%;
         padding: 4%;
         display: flex;
         background-color: $blue-background;
