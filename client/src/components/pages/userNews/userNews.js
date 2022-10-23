@@ -2,25 +2,8 @@ import './userNews.scss'
 import squiral from '../../../assets/squiral.jpeg'
 import Modal from '../shared/modal/modal'
 import { useState } from 'react'
-
-const news = [
-    {
-        img: squiral,
-        name: "Хакатон",
-        description: "Я хочу поучаствовать в хакатоне. Он проводится в ДГТУ. Я программист, изучаю JavaScript, React, знаком с основами вёрстки. Хочу пригласить заинтересованных людей поучавствовать со мной и моим другом, всего может набраться в команду 6 человек.",
-        category: "",
-        author: "Денис Братусь",
-        date: "23.10.2022"
-    },
-    {
-        img: squiral,
-        name: "Хакатон",
-        description: "Я хочу поучаствовать в хакатоне. Он проводится в ДГТУ. Я программист, изучаю JavaScript, React, знаком с основами вёрстки. Хочу пригласить заинтересованных людей поучавствовать со мной и моим другом, всего может набраться в команду 6 человек.",
-        category: "",
-        author: "Денис Братусь",
-        date: "23.10.2022"
-    }
-]
+import { useNews } from '../../../services/useNews'
+import { useEffect } from 'react'
 
 const LetterModal = ({close}) => {
     return (
@@ -29,7 +12,7 @@ const LetterModal = ({close}) => {
                 <span>Письмо ректору</span>
             </div>
             <div className="letter__textarea">
-                <textarea name="" id="" cols="25" rows="15"></textarea>
+                <textarea ref="" name="" id="" cols="25" rows="15"></textarea>
             </div>
             <div className="letter__button">
                 <button onClick={() => {}}>Отправить</button>
@@ -40,6 +23,15 @@ const LetterModal = ({close}) => {
 
 const UserNews = () => {
     const [letter, setLetter] = useState(false);
+    const [news, setNews] = useState([]);
+
+    useEffect(() => {
+        getNews().then(res => {
+            setNews(res)
+        })
+    }, [])
+
+    const {getNews} = useNews()
 
     const openModal = () => {
         setLetter(true)
@@ -53,23 +45,23 @@ const UserNews = () => {
         const items = news.map((item, i) => {
             return (
                 <>
-                    <li key={item.id}>
+                    <li key={item._id}>
                         <div className="news__card">
                             <div className="news__img-container">
-                                <img src={item.img} alt="белка" />
+                                <img src={squiral} alt="белка" />
                             </div>
                             <div className="news__name">
-                                <span>{item.name}</span>
+                                <span>{item.title}</span>
                             </div>
                             <div className="news__description">
                                 <p>{item.description}</p>
                             </div>
                             <div className="news__contact">
                                 <div>
-                                    <span>{item.author}</span>
+                                    <span>Денис Братусь</span>
                                 </div>
                                 <div>
-                                    <span>{item.date}</span>
+                                    <span>23.10.2022</span>
                                 </div>
                             </div>
                         </div>
