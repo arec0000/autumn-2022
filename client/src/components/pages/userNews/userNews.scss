@@ -62,3 +62,33 @@
         justify-content: space-between;
     }
 }
+
+
+.letter {
+    &__span {
+        margin: 15px;
+        font-size: 1rem;
+    }
+    &__textarea {
+        textarea {
+            padding: 20px;
+            font-size: 1.5rem;
+            resize: none;
+        }
+    }
+    &__button {
+        display: flex;
+        justify-content: end;
+        button {
+            color: $main-text-color;
+            margin: 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: rgb(217, 113, 113);
+            &:hover {
+                background-color: rgb(136, 69, 69);
+                transition-duration: .3s;
+            }
+        }
+    }
+}

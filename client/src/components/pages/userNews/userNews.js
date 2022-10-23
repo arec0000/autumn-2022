@@ -25,11 +25,14 @@ const news = [
 const LetterModal = ({close}) => {
     return (
         <Modal close={close}>
-            <div className="letter">
+            <div className="letter__span">
                 <span>Письмо ректору</span>
             </div>
-            <div>
-                <textarea name="" id="" cols="50" rows="25"></textarea>
+            <div className="letter__textarea">
+                <textarea name="" id="" cols="25" rows="15"></textarea>
+            </div>
+            <div className="letter__button">
+                <button onClick={() => {}}>Отправить</button>
             </div>
         </Modal>
     )
