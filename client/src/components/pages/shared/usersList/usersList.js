@@ -35,8 +35,7 @@ const UsersList = ({
                 {users.map((i) => (
                     <div className="user">
                         <div className="topUser">
-                            <div> {i.name} </div>
-                            <div> {i.lastName}</div>
+                            <div> {i.FCs} </div>
                             <img
                                 onClick={() => removeUser(i.id)}
                                 src={bin}
@@ -47,7 +46,7 @@ const UsersList = ({
 
                         <div className="bottUser">
                             <div> {i.group}</div>
-                            <div> {i.id}</div>
+                            <div> {i._id}</div>
                         </div>
                     </div>
                 ))}

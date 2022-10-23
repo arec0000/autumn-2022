@@ -13,7 +13,7 @@ const Admin = () => {
     const [valueUser, setValueUser] = useState({name: '', lastName: '', group: '', email: ''})
     const {createNews, getNews} = useNews()
     const {getLetters} = useLetter()
-    const {createUser: postUser} = useUsers()
+    const {createUser: postUser, getUsers} = useUsers()
     const [valueToken, setValueToken] = useState([{
         check: false,
         id: 1,
@@ -30,22 +30,7 @@ const Admin = () => {
         label: "Студент"
     },
 ])
-    const [users, setUsers] = useState([
-        {
-            name: "Вова",
-            lastName: "Смирнов",
-            group: "21HT",
-            email: "123456Nn@gmail.com",
-            id: 1
-        },
-        {
-            name: "Андрей",
-            lastName: "Карагачев",
-            group: "21VQ",
-            email: "123456Ak@gmail.com",
-            id: 2
-        },
-    ]);
+    const [users, setUsers] = useState([]);
     const [news, setNews] = useState([])
     const [comments, setComments] = useState([])
 
@@ -55,6 +40,8 @@ const Admin = () => {
             setNews(res)
             const letters = await getLetters()
             setComments(letters)
+            const users = await getUsers()
+            setUsers(users)
         }
         req()
     }, [])

@@ -15,12 +15,15 @@ const useNews = () => {
         return res
     }
 
-    // const getNews = async () => {
-    //     const res = await request(`${apiBase}news`)
-    //     return res
-    // }
+    const getUsers = async data => {
+        const res = await request(`${apiBase}users`, 'GET', null, {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        })
+        return res
+    }
 
-    return {createUser}
+    return {createUser, getUsers}
 }
 
 export default useNews
