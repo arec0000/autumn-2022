@@ -3,6 +3,7 @@ import BlockComments from "../shared/blockComments/blockComments";
 import BlockNews from "../shared/blockNews/blockNews";
 import UsersList from "../shared/usersList/usersList";
 import useNews from "../../../services/useNews";
+import useLetter from "../../../services/useLetter";
 import "./admin.scss";
 const Admin = () => {
     const [nw, setNew] = useState({title: '', text: ''});
@@ -10,6 +11,7 @@ const Admin = () => {
     const [tegs] = useState(['социальная жизнь', 'учебные новости', 'жизнь ВУЗа' ])
     const [valueUser, setValueUser] = useState({name: '', lastName: '', group: '', email: ''})
     const {createNews, getNews} = useNews()
+    const {getLetters} = useLetter()
     const [valueToken, setValueToken] = useState([{
         check: false,
         id: 1,
@@ -43,7 +45,7 @@ const Admin = () => {
         },
     ]);
     const [news, setNews] = useState([])
-    const [comments] = useState([{
+    const [comments, setComments] = useState([{
         name: "Андрей",
         lastName: "Карагачев",
         text: 'Вы очень много работаете, может вам пора отдохнуть'
@@ -57,6 +59,8 @@ const Admin = () => {
         const req = async () => {
             const res = await getNews()
             setNews(res)
+            const letters = await getLetters()
+            console.log(letters)
         }
         req()
     }, [])
@@ -80,7 +84,7 @@ const Admin = () => {
             setNews(news.filter(i => i.id !== id))
             setNew({title: edNew.title, text: edNew.text})
         }
-        
+
     }
     function removeUser(id){
         setUsers(users.filter(u => u.id !== id))
@@ -107,7 +111,7 @@ const Admin = () => {
 
                 <BlockComments comments={comments}/>
                 <BlockNews setNews={setNews}  tegs={tegs} news={news} editNew={editNew} nw={nw} setNew={setNew} title={nw.title} text={nw.text} createNew={createNew} />
-                
+
                 <UsersList createUser={createUser} setValueUser={setValueUser} valueUser={valueUser} removeUser={removeUser} valueToken={valueToken} setValueToken={setValueToken} tokenFlag={tokenFlag} setTokenFlag={setTokenFlag} users={users} />
             </div>
 
