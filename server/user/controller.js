@@ -105,7 +105,7 @@ export const createUser = async (req, res) => {
         const user = new User(req.body)
         await user.save()
         console.log('Пользователь создан')
-        res.json('Пользователь успешно создан')
+        res.json('Пользователь успешно создан' + user._id)
     } catch (e) {
         res.json(e.message)
         console.log('Ошибка при создании пользователя')
