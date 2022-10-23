@@ -4,6 +4,7 @@ import BlockNews from "../shared/blockNews/blockNews";
 import UsersList from "../shared/usersList/usersList";
 import useNews from "../../../services/useNews";
 import useLetter from "../../../services/useLetter";
+import useUsers from '../../../services/useUsers';
 import "./admin.scss";
 const Admin = () => {
     const [nw, setNew] = useState({title: '', text: ''});
@@ -12,6 +13,7 @@ const Admin = () => {
     const [valueUser, setValueUser] = useState({name: '', lastName: '', group: '', email: ''})
     const {createNews, getNews} = useNews()
     const {getLetters} = useLetter()
+    const {createUser: postUser} = useUsers()
     const [valueToken, setValueToken] = useState([{
         check: false,
         id: 1,
@@ -81,8 +83,20 @@ const Admin = () => {
     function removeUser(id){
         setUsers(users.filter(u => u.id !== id))
     }
+    function renameRole(role) {
+        switch (role) {
+            case 'Сотрудник':
+                return 'employee'
+            case 'Преподаватель':
+                return 'teacher'
+            case 'Студент':
+                return 'student'
+            default:
+                return
+        }
+    }
     function createUser(){
-        if (valueUser.email && valueUser.group && valueUser.lastName && valueUser.name){
+        if (valueUser.group && valueUser.lastName && valueUser.name){
             const newUser = {
                 name: valueUser.name,
                 lastName: valueUser.lastName,
@@ -95,6 +109,11 @@ const Admin = () => {
                 lastName: '',
                 group: '',
                 email: '',})
+            postUser({
+                FCs: `${valueUser.lastName} ${valueUser.name}`,
+                role: renameRole(valueToken.find(item => item.check).label),
+                group: valueUser.group
+            })
         }
     }
     return (
@@ -112,19 +131,3 @@ const Admin = () => {
 };
 
 export default Admin;
-
-
-// {
-//     title: 'Нашли котиков, которые умеют леветировать',
-//     description: 'Характеристика: обезличен для зрителя, характера не имеет. Его игра строится на пластике движения во время строительства башни. Пластика задается характером активной личности, а так же настроением и смыслом передаваемого события.',
-//     id: 1,
-//     tegFlag: false,
-//     teg: ''
-// },
-// {
-//     title: 'Нашли котиков, которые умеют леветировать',
-//     description: 'Среда/ситуация: старшие классы, широкий и разнообразный круг общения, влияние культурного пласта (литература, кино, музыка, история, философия).',
-//     id: 2,
-//     tegFlag: false,
-//     teg: ''
-// }
