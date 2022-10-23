@@ -3,15 +3,11 @@ import bcrypt from 'bcryptjs'
 import { secret } from '../config.js'
 import User from './model.js'
 
+import checkAccess from '../helpers/checkAccess.js'
+
 const generateAccessToken = id => {
     const payload = {id}
     return jwt.sign(payload, secret, {expiresIn: '24h'})
-}
-
-const checkAccess = async token => {
-    const {id} = jwt.verify(token, secret)
-    const user = await User.findById(id)
-    return user?.role
 }
 
 export const getRole = async (req, res) => {
