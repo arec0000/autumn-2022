@@ -22,28 +22,28 @@ const LetterModal = ({close}) => {
                 <button onClick={submit}>Отправить</button>
             </div>
         </Modal>
-    )
-}
+    );
+};
 
 const UserNews = () => {
     const [letter, setLetter] = useState(false);
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        getNews().then(res => {
-            setNews(res)
-        })
-    }, [])
+        getNews().then((res) => {
+            setNews(res);
+        });
+    }, []);
 
-    const {getNews} = useNews()
+    const { getNews } = useNews();
 
     const openModal = () => {
-        setLetter(true)
-    }
+        setLetter(true);
+    };
 
     const closeModal = () => {
-        return setLetter(false)
-    }
+        return setLetter(false);
+    };
 
     function updateChars(news) {
         const items = news.map((item, i) => {
@@ -71,27 +71,31 @@ const UserNews = () => {
                         </div>
                     </li>
                 </>
-            )
+            );
         });
 
-        return (
-            <ul className="news__ul">
-                {items}
-            </ul>
-        )
+        return <ul className="news__ul">{items}</ul>;
     }
 
-
-    const rectorModal = letter ? <LetterModal close={closeModal}/> : null;
+    const rectorModal = letter ? <LetterModal close={closeModal} /> : null;
 
     return (
         <div className="news">
+<<<<<<< HEAD
             <button className="news__button" onClick={openModal}>Написать ректору</button>
+=======
+            <button
+                className="news__button news__button_letter"
+                onClick={openModal}
+            >
+                Написать ректору
+            </button>
+>>>>>>> 6018c4054916ea20434fe2837a87828372c36a32
             <button className="news__button">Предложить новость</button>
             {updateChars(news)}
             {rectorModal}
         </div>
-    )
-}
+    );
+};
 
-export default UserNews
+export default UserNews;

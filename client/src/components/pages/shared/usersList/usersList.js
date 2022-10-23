@@ -1,11 +1,15 @@
 import React from "react";
-
+import bin from "../../../../assets/icon/bin.png";
 const UsersList = ({
     users,
     setTokenFlag,
     tokenFlag,
     valueToken,
     setValueToken,
+    removeUser,
+    valueUser,
+    setValueUser,
+    createUser,
 }) => {
     function changeCheck(e) {
         setValueToken(
@@ -20,6 +24,10 @@ const UsersList = ({
         const label = valueToken.filter((i) => i.check === true)[0].label;
         return label;
     }
+    function handleChange(target) {
+        setValueUser((prev) => ({ ...prev, [target.name]: target.value }));
+    }
+
     return (
         <div className="containerAuthUsers">
             <div className="authUsers">Зарегестрированные пользователи</div>
@@ -29,10 +37,17 @@ const UsersList = ({
                         <div className="topUser">
                             <div> {i.name} </div>
                             <div> {i.lastName}</div>
+                            <img
+                                onClick={() => removeUser(i.id)}
+                                src={bin}
+                                alt="bin"
+                            />
                         </div>
+                        <div> {i.email}</div>
+
                         <div className="bottUser">
-                            <div> {i.email}</div>
-                            <div> {i.grup}</div>
+                            <div> {i.group}</div>
+                            <div> {i.id}</div>
                         </div>
                     </div>
                 ))}
@@ -40,12 +55,51 @@ const UsersList = ({
                     className="createToken"
                     onClick={() => setTokenFlag(!tokenFlag)}
                 >
-                    Панель токенов
+                    Панел пользователя
                 </div>
                 <div
                     className="blockToken"
                     style={{ opacity: tokenFlag ? "1" : "0" }}
                 >
+                    <input
+                        value={valueUser.name}
+                        placeholder="Имя"
+                        type="text"
+                        name="name"
+                        onChange={(e) => handleChange(e.target)}
+                    />
+                    <input
+                        value={valueUser.lastName}
+                        placeholder="Фамилия"
+                        name="lastName"
+                        type="text"
+                        onChange={(e) => handleChange(e.target)}
+                    />
+
+                    {valueToken[2].check ? (
+                        <input
+                            value={valueUser.group}
+                            placeholder="Группа"
+                            name="group"
+                            type="text"
+                            onChange={(e) => handleChange(e.target)}
+                        />
+                    ) : (
+                        <input
+                            disabled
+                            value=""
+                            type="text"
+                            className="disabl"
+                            placeholder="Только для студента"
+                        />
+                    )}
+                    <input
+                        value={valueUser.email}
+                        placeholder="Email"
+                        name="email"
+                        type="text"
+                        onChange={(e) => handleChange(e.target)}
+                    />
                     <form>
                         {valueToken.map((i) => (
                             <div>
@@ -60,15 +114,8 @@ const UsersList = ({
                             </div>
                         ))}
                     </form>
-                    <div
-                        className="createToken"
-                        onClick={() =>
-                            alert(
-                                `Ваш токен для ${checkTocken()} ${new Date().getTime()}`
-                            )
-                        }
-                    >
-                        Создать токен
+                    <div className="createToken" onClick={createUser}>
+                        Создать пользователя
                     </div>
                 </div>
             </div>

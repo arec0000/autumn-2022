@@ -23,7 +23,7 @@
                 flex-direction: column;
                 gap: 8px;
                 position: relative;
-                padding-top: 0;
+                padding: 0 15px 0 15px;
                 .newsTitle{
                     font-size: 25px;
                     font-weight: 600;
@@ -103,6 +103,7 @@
                 gap: 20px;
                 padding: 50px 0;
                 textarea{
+                    margin-top: 20px;
                     border-radius: 8px;
                     background-color: $active-background;
                     color: $main-text-color;
@@ -164,10 +165,20 @@
                     height: 80px;
                     justify-content: space-between;
                     flex-direction: column;
+                    gap: 9px;
                     padding: 10px;
+                    img{
+                        width: 17px;
+                        cursor: pointer;
+                    }
                     .topUser{
                         display: flex;
+                        gap: 10px;
+                    }
+                    .bottUser{
+                        display: flex;
                         justify-content: space-between;
+
                     }
                 }
             }
@@ -207,14 +218,32 @@
 
         }
         .blockToken{
+            background-color: $active-background;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding:  0 15px 10px;
+
+            input[type='text']{
+                margin-top: 10px;
+                border-radius: 4px;
+                padding: 6px  0 6px 8px;
+                text-align: center;
+                background-color: $blue-background;
+                color: $main-text-color;
+            }
+
             form{
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 gap: 4px;
-                background-color: $active-background;
-                border-radius: 8px;
                 padding:  18px 0;
+
+                div{
+
+                    display: flex;
+                    justify-content: space-between;
+                }
             }
 
         }
