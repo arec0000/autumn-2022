@@ -3,12 +3,16 @@ import squiral from '../../../assets/squiral.jpeg'
 import Modal from '../shared/modal/modal'
 import { useState, useEffect, useRef } from 'react'
 import useNews from '../../../services/useNews'
+import useLetter from '../../../services/useLetter'
+
 
 const LetterModal = ({close}) => {
     const ref = useRef(null)
+    const {send} = useLetter()
 
     const submit = () => {
-        
+        send(ref.current.value)
+        close()
     }
     return (
         <Modal close={close}>
@@ -81,16 +85,7 @@ const UserNews = () => {
 
     return (
         <div className="news">
-<<<<<<< HEAD
             <button className="news__button" onClick={openModal}>Написать ректору</button>
-=======
-            <button
-                className="news__button news__button_letter"
-                onClick={openModal}
-            >
-                Написать ректору
-            </button>
->>>>>>> 6018c4054916ea20434fe2837a87828372c36a32
             <button className="news__button">Предложить новость</button>
             {updateChars(news)}
             {rectorModal}
