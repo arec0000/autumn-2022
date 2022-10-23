@@ -63,10 +63,7 @@ const UserNews = () => {
 
     return (
         <div className="news">
-            <div className="news__button-container">
-                <button className="news__button">Написать ректору</button>
-                <button className="news__button">Предложить новость</button>
-            </div>
+            <button className="news__button">Предложить новость</button>
             {updateChars(news)}
         </div>
     )
