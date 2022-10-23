@@ -52,7 +52,6 @@ const Admin = () => {
     }])
 
     useEffect(() => {
-
         const req = async () => {
             const res = await getNews()
             setNews(res)

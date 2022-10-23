@@ -2,7 +2,7 @@ import './userNews.scss'
 import squiral from '../../../assets/squiral.jpeg'
 import Modal from '../shared/modal/modal'
 import { useState } from 'react'
-import { useNews } from '../../../services/useNews'
+import useNews from '../../../services/useNews'
 import { useEffect } from 'react'
 
 const LetterModal = ({close}) => {
