@@ -17,7 +17,7 @@ const options = {
     pass: 'test-pass'
 }
 
-mongoose.connect('mongodb://localhost:27017/database?authSource=admin', options)
+mongoose.connect('mongodb://grtsk:27017/database?authSource=admin', options)
     .then(() => {
         console.log('connected to mongodb')
         app.listen(PORT, err => err ? console.log(err) : console.log(`Server started on port ${PORT}`))
