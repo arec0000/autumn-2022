@@ -1,6 +1,6 @@
 import { useHttp } from '../hooks/httpRequest'
 
-const apiBase = 'https://grtsk:5000/'
+const apiBase = 'http://grtsk:5000/'
 
 const useRequestAuthData = () => {
     const {request} = useHttp()
