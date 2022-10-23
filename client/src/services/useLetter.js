@@ -15,7 +15,15 @@ const useLetter = () => {
         return res
     }
 
-    return send
+    const getLetters = async text => {
+        const res = await request(`${apiBase}rector`, 'GET', null, {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        })
+        return res
+    }
+
+    return {send, getLetters}
 }
 
 export default useLetter
