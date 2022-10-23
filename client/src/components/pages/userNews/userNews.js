@@ -1,6 +1,7 @@
 import './userNews.scss'
 import squiral from '../../../assets/squiral.jpeg'
-
+import Modal from '../shared/modal/modal'
+import { useState } from 'react'
 
 const news = [
     {
@@ -21,9 +22,29 @@ const news = [
     }
 ]
 
-
+const LetterModal = ({close}) => {
+    return (
+        <Modal close={close}>
+            <div className="letter">
+                <span>Письмо ректору</span>
+            </div>
+            <div>
+                <textarea name="" id="" cols="50" rows="25"></textarea>
+            </div>
+        </Modal>
+    )
+}
 
 const UserNews = () => {
+    const [letter, setLetter] = useState(false);
+
+    const openModal = () => {
+        setLetter(true)
+    }
+
+    const closeModal = () => {
+        return setLetter(false)
+    }
 
     function updateChars(news) {
         const items = news.map((item, i) => {
@@ -61,10 +82,15 @@ const UserNews = () => {
         )
     }
 
+
+    const rectorModal = letter ? <LetterModal close={closeModal}/> : null;
+
     return (
         <div className="news">
+            <button className="news__button news__button_letter" onClick={openModal}>Написать ректору</button>
             <button className="news__button">Предложить новость</button>
             {updateChars(news)}
+            {rectorModal}
         </div>
     )
 }

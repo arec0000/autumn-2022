@@ -24,6 +24,12 @@
             background-color: rgb(136, 69, 69);
             transition-duration: .3s;
         }
+        &_letter {
+            position: fixed;
+            top: 50px;
+            right: 30px;
+            z-index: 3;
+        }
     }
     &__img-container {
         position: relative;
