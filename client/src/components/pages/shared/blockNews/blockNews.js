@@ -28,7 +28,7 @@ const BlockNews = ({
                                 />
                             </div>
                             <div className="text">
-                                {i.text}
+                                {i.description}
                                 <img
                                     src={hambur}
                                     alt="hambur"

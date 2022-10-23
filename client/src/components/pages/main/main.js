@@ -17,11 +17,11 @@ const Main = () => {
                         <button className= {`main__button${open ? "" : " main__button_close"}`} onClick={() => {openSidePanel(open)}}></button>
                     </div>
                     <div className= {`side-panel${open ? "" : " side-panel_hidden"}`}>
-                        <Link className="side-panel__link" to="/news">Новости</Link>
+                        <Link className="side-panel__link" to="/news">Главная</Link>
                         <Link className="side-panel__link side-panel__link_profile" to="/profile">Профиль</Link>
                         <Link className="side-panel__link side-panel__link_schedule" to="/schedule">Расписание</Link>
                     </div>
-                    <div className="side-panel__page">
+                    <div className={`side-panel__page${open ? '' : ' side-panel__page_fullscreen'}`}>
                         <Outlet />
                     </div>
                 </div>

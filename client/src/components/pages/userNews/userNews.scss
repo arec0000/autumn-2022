@@ -1,0 +1,94 @@
+@import '../../../assets/variables.scss';
+
+.news {
+    padding: 6%;
+    font-size: 1.3rem;
+    color: $main-text-color;
+    &__ul {
+        list-style-type: none;
+    }
+    &__card {
+        display: flex;
+        flex-direction: column;
+        margin: 30px;
+        background: $widget-background;
+        padding: 30px;
+    }
+    &__button {
+        padding: 10px 20px;
+        background-color: rgb(160, 75, 75);
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-left: 20px;
+        &:hover {
+            background-color: rgb(136, 69, 69);
+            transition-duration: .3s;
+        }
+        &_letter {
+            position: fixed;
+            top: 50px;
+            right: 30px;
+            z-index: 3;
+        }
+    }
+    &__img-container {
+        position: relative;
+        padding: 0 0 50% 0;
+        width: 100%;
+        margin: 50px 0;
+        img {
+            position: absolute;
+            object-position: 50% 50%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+    &__name {
+        font-size: 2rem;
+        padding: 0  0 20px 20px;
+        font-weight: 600;
+    }
+    &__description {
+        padding: 0  20px 0 20px;
+    }
+    &__contact {
+        padding: 0  20px 0 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+.letter {
+    &__span {
+        margin: 15px;
+        font-size: 1rem;
+    }
+    &__textarea {
+        textarea {
+            padding: 20px;
+            font-size: 1.5rem;
+            resize: none;
+        }
+    }
+    &__button {
+        display: flex;
+        justify-content: end;
+        button {
+            color: $main-text-color;
+            margin: 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: rgb(217, 113, 113);
+            &:hover {
+                background-color: rgb(136, 69, 69);
+                transition-duration: .3s;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@import '~antd/dist/antd.css';
+@import '../../../../assets/variables.scss';
+
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.events .ant-badge-status {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notes-month {
+    font-size: 28px;
+    text-align: center;
+}
+
+.notes-month section {
+    font-size: 28px;
+}
+
+.lesson-title {
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color .2s;
+    &:hover {
+        background-color: #d3d7de;
+    }
+}
+
+.lesson-card {
+    &__header {
+        margin-bottom: .8rem;
+    }
+
+    &__description, &__time {
+        display: block;
+        margin-bottom: 15px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__additional {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        &_right {
+            justify-content: flex-end;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
