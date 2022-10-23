@@ -13,7 +13,7 @@ const Admin = () => {
     const [valueUser, setValueUser] = useState({name: '', lastName: '', group: '', email: ''})
     const {createNews, getNews} = useNews()
     const {getLetters} = useLetter()
-    const {createUser: postUser, getUsers} = useUsers()
+    const {createUser: postUser, getUsers, deleteUser} = useUsers()
     const [valueToken, setValueToken] = useState([{
         check: false,
         id: 1,
@@ -68,7 +68,8 @@ const Admin = () => {
 
     }
     function removeUser(id){
-        setUsers(users.filter(u => u.id !== id))
+        setUsers(users.filter(u => u._id !== id))
+        deleteUser(id)
     }
     function renameRole(role) {
         switch (role) {

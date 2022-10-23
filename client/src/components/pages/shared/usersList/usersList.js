@@ -37,7 +37,7 @@ const UsersList = ({
                         <div className="topUser">
                             <div> {i.FCs} </div>
                             <img
-                                onClick={() => removeUser(i.id)}
+                                onClick={() => removeUser(i._id)}
                                 src={bin}
                                 alt="bin"
                             />

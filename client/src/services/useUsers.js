@@ -23,7 +23,15 @@ const useNews = () => {
         return res
     }
 
-    return {createUser, getUsers}
+    const deleteUser = async id => {
+        const res = await request(`${apiBase}user?id=${id}`, 'DELETE', null, {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        })
+        return res
+    }
+
+    return {createUser, getUsers, deleteUser}
 }
 
 export default useNews

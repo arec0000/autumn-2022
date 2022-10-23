@@ -150,14 +150,14 @@ export const deleteUser = async (req, res) => {
                 error: 'id не указан'
             })
         }
-        User.findByIdAndDelete(id)
+        // User.findByIdAndDelete(id)
+        const user = await User.findById(id)
+        user.remove()
         res.json(`Пользователь ${id} удалён`)
+        console.log(`Пользователь ${id} удалён`)
     } catch (e) {
         res.json(e.message)
         console.log('Ошибка при удалении пользователя')
         console.error(e)
     }
-
-
-
 }
