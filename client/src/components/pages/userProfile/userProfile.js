@@ -6,8 +6,8 @@ import Achievements from '../achievements/achievements'
 const UserProfile = () => {
     const data = {
         foto: foto,
-        name: "Anna",
-        surname: "Love",
+        name: "Анна",
+        surname: "Лучникова",
         group: "XU12",
         mail: "aaaaa@mail.ru",
         number: "89505078989",
@@ -25,18 +25,29 @@ const UserProfile = () => {
                     </div>
                 </div>
                 <div className="user-profile__assessment">
-                    <div className="">
-                        <span className="user-profile__user-inform">{data.name} {data.surname}</span>
+                    <div className="user-profile__general-information">
+                        <div>
+                            <div className="user-profile__department">
+                                <span>Кафедра: Инстетут опережающих технологий</span>
+                            </div>
+                            <div>
+                                <span className="user-profile__user-inform">{data.name} {data.surname}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Средний балл: </span>
+                            <span> 4.5</span>
+                        </div>
                     </div>
                     <div className="user-profile__contact-information">
                         <div>
-                            <span className="icon1">{data.mail}</span>
+                            <span className="user-profile__contact-information_item icon3">{data.mail}</span>
                         </div>
                         <div>
-                            <span className="icon2">{data.number}</span>
+                            <span className="user-profile__contact-information_item icon1">{data.number}</span>
                         </div>
                         <div>
-                            <span className="icon3">{data.vk}</span>
+                            <span className="user-profile__contact-information_item icon2">{data.vk}</span>
                         </div>
                     </div>
                 </div>

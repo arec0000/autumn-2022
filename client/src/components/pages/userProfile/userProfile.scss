@@ -17,7 +17,10 @@
     }
     &__assessment {
         display: flex;
+        justify-content: space-around;
         flex-direction: column;
+        padding: 20px;
+        color: $text-information;
     }
     &__foto {
         position: relative;
@@ -39,12 +42,19 @@
         display: flex;
         justify-content: space-around;
         font-size: 1.5rem;
+        &_item {
+            margin: 20px;
+            padding-left: 40px;
+        }
     }
     &__user-inform {
         font-size: 1.2rem;
         align-items: center;
         text-align: center;
         padding: 10px;
+    }
+    &__department {
+        margin-bottom: 20px;
     }
     &__basic-information {
         font-size: 1.2rem;
@@ -55,6 +65,10 @@
         row-gap: 25px;
         align-content: start;
     }
+    &__general-information {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .text-secondary {
@@ -62,13 +76,13 @@
 }
 
 .icon1 {
-
+    background: url("../../../assets/icon/number.svg") 0 center/auto 100% no-repeat;
 }
 
 .icon2 {
-
+    background: url("../../../assets/icon/mail.svg") 0 center/auto 100% no-repeat;
 }
 
 .icon3 {
-
+    background: url("../../../assets/icon/vk.svg") 0 center/auto 100% no-repeat;
 }
