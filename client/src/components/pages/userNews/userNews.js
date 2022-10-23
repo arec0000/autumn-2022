@@ -1,21 +1,25 @@
 import './userNews.scss'
 import squiral from '../../../assets/squiral.jpeg'
 import Modal from '../shared/modal/modal'
-import { useState } from 'react'
-import { useNews } from '../../../services/useNews'
-import { useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import useNews from '../../../services/useNews'
 
 const LetterModal = ({close}) => {
+    const ref = useRef(null)
+
+    const submit = () => {
+        
+    }
     return (
         <Modal close={close}>
             <div className="letter__span">
                 <span>Письмо ректору</span>
             </div>
             <div className="letter__textarea">
-                <textarea ref="" name="" id="" cols="25" rows="15"></textarea>
+                <textarea ref={ref} cols="25" rows="15"></textarea>
             </div>
             <div className="letter__button">
-                <button onClick={() => {}}>Отправить</button>
+                <button onClick={submit}>Отправить</button>
             </div>
         </Modal>
     )
@@ -82,7 +86,7 @@ const UserNews = () => {
 
     return (
         <div className="news">
-            <button className="news__button news__button_letter" onClick={openModal}>Написать ректору</button>
+            <button className="news__button" onClick={openModal}>Написать ректору</button>
             <button className="news__button">Предложить новость</button>
             {updateChars(news)}
             {rectorModal}
