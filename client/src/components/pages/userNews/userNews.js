@@ -1,9 +1,12 @@
+import './userNews.scss'
+
 const UserNews = () => {
-    
     return (
-        <>
-            <div>NEWS</div>
-        </>
+        <div className="news">
+            <div className="news__card">
+                
+            </div>
+        </div>
     )
 }
 
