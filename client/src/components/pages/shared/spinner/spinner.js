@@ -1,4 +1,4 @@
-import { ReactComponent as Svg } from "../../../../assets/Spinner.svg";
+import { ReactComponent as Svg } from "../../../../assets/spinner.svg";
 import "./spinner.scss";
 
 const Spinner = () => {
