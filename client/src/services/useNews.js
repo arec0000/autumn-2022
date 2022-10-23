@@ -15,7 +15,12 @@ const useNews = () => {
         return res
     }
 
-    return {createNews}
+    const getNews = async () => {
+        const res = await request(`${apiBase}news`)
+        return res
+    }
+
+    return {createNews, getNews}
 }
 
 export default useNews

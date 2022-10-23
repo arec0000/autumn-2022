@@ -33,6 +33,7 @@ export const updateNews = (req, res) => {
 
 }
 
-export const getNews = (req, res) => {
-
+export const getNews = async (req, res) => {
+    const news = await News.find({})
+    res.json(news)
 }

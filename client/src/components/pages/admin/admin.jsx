@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BlockComments from "../shared/blockComments/blockComments";
 import BlockNews from "../shared/blockNews/blockNews";
 import UsersList from "../shared/usersList/usersList";
@@ -9,6 +9,7 @@ const Admin = () => {
     const [tokenFlag, setTokenFlag] = useState(false)
     const [tegs, setTegs] = useState(['социальная жизнь', 'учебные новости', 'жизнь ВУЗа' ])
     const [tegFlag, setTegFlag] = useState(false)
+    const {createNews, getNews} = useNews()
     const [valueToken, setValueToken] = useState([{
         check: false,
         id: 1,
@@ -39,22 +40,7 @@ const Admin = () => {
             email: "123456Ak@gmail.com",
         },
     ]);
-    const [news, setNews] = useState([
-        {
-            title: 'Нашли котиков, которые умеют леветировать',
-            description: 'Характеристика: обезличен для зрителя, характера не имеет. Его игра строится на пластике движения во время строительства башни. Пластика задается характером активной личности, а так же настроением и смыслом передаваемого события.',
-            id: 1,
-            tegFlag: false,
-            teg: ''
-        },
-        {
-            title: 'Нашли котиков, которые умеют леветировать',
-            description: 'Среда/ситуация: старшие классы, широкий и разнообразный круг общения, влияние культурного пласта (литература, кино, музыка, история, философия).',
-            id: 2,
-            tegFlag: false,
-            teg: ''
-        }
-    ])
+    const [news, setNews] = useState([])
     const [comments] = useState([{
         name: "Андрей",
         lastName: "Карагачев",
@@ -64,7 +50,16 @@ const Admin = () => {
         lastName: "Смирнов",
         text: 'Мне кажется вы слишком мало работаете, работайте побольше, а то результата не видно'
     }])
-    const {createNews} = useNews()
+
+    useEffect(() => {
+
+        const req = async () => {
+            const res = await getNews()
+            setNews(res)
+        }
+        req()
+    }, [])
+
     function createNew(title, text)  {
         if(nw.text && nw.title){
             const newNews = {
@@ -101,3 +96,19 @@ const Admin = () => {
 };
 
 export default Admin;
+
+
+// {
+//     title: 'Нашли котиков, которые умеют леветировать',
+//     description: 'Характеристика: обезличен для зрителя, характера не имеет. Его игра строится на пластике движения во время строительства башни. Пластика задается характером активной личности, а так же настроением и смыслом передаваемого события.',
+//     id: 1,
+//     tegFlag: false,
+//     teg: ''
+// },
+// {
+//     title: 'Нашли котиков, которые умеют леветировать',
+//     description: 'Среда/ситуация: старшие классы, широкий и разнообразный круг общения, влияние культурного пласта (литература, кино, музыка, история, философия).',
+//     id: 2,
+//     tegFlag: false,
+//     teg: ''
+// }
