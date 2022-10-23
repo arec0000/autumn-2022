@@ -4,9 +4,10 @@
     height: 100vh;
     &__button {
         transition: all .5s;
+        z-index: 5;
         position: fixed;
         top: 2%;
-        left: 16%;
+        left: 17%;
         width: 50px;
         height: 20px;
         background: url("../../../assets/icon/arrows.svg") 0 center/auto 100% no-repeat;
@@ -23,6 +24,7 @@
 }
 .side-panel {
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 16%;
@@ -36,7 +38,6 @@
 	transition: transform 0.5s;
     &_hidden {
         transform: translate(-100%, 0);
-        display: none;
     }
     &__link {
         padding: 4% 0 3% 15%;
@@ -53,8 +54,20 @@
         }
     }
     &__page {
+        display: flex;
         width: 100%;
-        height: 100%;
         margin-left: 16%;
+        position: relative;
+        transition: margin .5s;
+        & > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        &_fullscreen {
+            margin: 0;
+        }
     }
 }
